@@ -1,7 +1,21 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {tarikDataGlobal} from "./api"
 
-const App = () => {
+class App extends React.Component{
+state = {
+    dataGlobal: {
+
+    }
+}
+
+async componentDidMount() {
+    const dataGlobal = await tarikDataGlobal()
+    this.setState({dataGlobal: dataGlobal})
+    console.log(this.state.dataGlobal)
+}
+
+render(){
     return (
         <div>
             <Router >
@@ -20,6 +34,7 @@ const App = () => {
             </Router>
         </div>
     )
+}
 }
 
 export default App
