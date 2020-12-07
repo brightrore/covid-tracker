@@ -13,7 +13,6 @@ const Table = () => {
     fetchApi();
   }, [setDataProvinsi]);
 
-  console.log(dataProvinsi);
   return (
     <div>
       <table>
