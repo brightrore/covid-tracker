@@ -24,3 +24,19 @@ export const tarikDataIndo = async () => {
     console.log(err);
   }
 };
+
+export const tarikDataProvinsi = async () => {
+  try {
+    const {
+      data: { data: provinces },
+    } = await axios.get(`${urlIndonesia}/provinsi`);
+    return provinces.map((provinsi) => ({
+      namaProvinsi: provinsi.provinsi,
+      confirmed: provinsi.kasusPosi,
+      deaths: provinsi.kasusMeni,
+      recovered: provinsi.kasusSemb,
+    }));
+  } catch (err) {
+    console.log(err);
+  }
+};

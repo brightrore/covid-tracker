@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { tarikDataGlobal, tarikDataIndo } from "./api";
-import { Cards } from "./components";
+import { Cards, Table } from "./components";
 
 class App extends React.Component {
   state = {
@@ -38,6 +38,9 @@ class App extends React.Component {
                 data={this.state.dataIndonesia}
                 text="Jumlah Kasus Indonesia"
               />
+            </Route>
+            <Route path="/provinsi">
+              <Table />
             </Route>
             <Route path="/">
               <Cards data={this.state.dataGlobal} text="Jumlah Kasus Dunia" />
