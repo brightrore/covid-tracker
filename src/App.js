@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {tarikDataGlobal} from "./api"
+import { Cards } from './components';
 
 class App extends React.Component{
 state = {
@@ -12,7 +13,6 @@ state = {
 async componentDidMount() {
     const dataGlobal = await tarikDataGlobal()
     this.setState({dataGlobal: dataGlobal})
-    console.log(this.state.dataGlobal)
 }
 
 render(){
@@ -31,6 +31,9 @@ render(){
                     <Link to="/provinsi">Per Provinsi</Link>
                 </li>
             </ul>
+            <Switch>
+                <Route path="/"><Cards data={this.state.dataGlobal} text="Jumlah Kasus Dunia"/></Route>
+            </Switch>
             </Router>
         </div>
     )
